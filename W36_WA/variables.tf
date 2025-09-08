@@ -11,3 +11,4 @@ variable "location" {
   default     = "westeurope"
 
 }
+
