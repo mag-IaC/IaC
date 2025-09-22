@@ -72,11 +72,17 @@ variable "pip_id" {
 
 variable "test_password" {
   description = "default password, ONLY FOR TESTING"
-  default = "test_12345!ChangeDefault!"
+  default     = "test_12345!ChangeDefault!"
 }
 
-# Variables you’ll need
-variable "prefix" {
-  description = "Prefix for all resources"
+variable "ip_config_name" {
+  description = "Name for IP-config"
+  type        = string
+  default     = "ipconfig-df-mag-001"
+}
+
+variable "nsg_id" {
+  description = "nsg_id gotten from the nsg module"
   type        = string
 }
+

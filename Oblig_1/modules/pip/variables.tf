@@ -1,6 +1,7 @@
-variable "prefix" {
-  description = "Prefix for naming the public IP"
+variable "pip_name" {
+  description = "default name for pip"
   type        = string
+  default     = "mag-df-pip-001"
 }
 
 variable "location" {
@@ -24,3 +25,11 @@ variable "sku" {
   type        = string
   default     = "Standard"
 }
+
+//Added so we can manually deactivate pip
+variable "create_pip" {
+  description = "Whether to create a public IP for the VM"
+  type        = bool
+  default     = true
+}
+

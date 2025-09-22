@@ -1,11 +1,13 @@
-variable "prefix" {
-  description = "Prefix for naming the NSG"
+
+variable "location" {
+  description = "location..."
   type        = string
 }
 
-variable "location" {
-  description = "Azure region"
+variable "nsg_name" {
+  description = "default name for nsg"
   type        = string
+  default     = "mag-df-nsg-001"
 }
 
 variable "rg_name" {

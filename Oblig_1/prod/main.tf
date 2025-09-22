@@ -6,10 +6,9 @@ terraform {
     }
   }
 }
-
 provider "azurerm" {
 
-  subscription_id = local.config_var.subscription_id
+  subscription_id = var.subscription_id
   features {
   }
 }
@@ -19,22 +18,40 @@ resource "azurerm_resource_group" "rg" {
   location = var.location
 }
 
-//Using the resources that we have defined in our modules, this is PROD (but copied from dev)
+// Here all the modules begin
 
+// 1. Make the network
+// 2. Make the nsg
+// 3. Make the pip
+// 4. Make the vm
 module "network" {
   source     = "../modules/network"
   rg_name    = azurerm_resource_group.rg.name
+  location   = var.location
   enviroment = var.enviroment
-
-
+  #All other parameters are gotten from default values
 }
-
+module "nsg" {
+  source   = "../modules/nsg"
+  location = var.location
+  rg_name  = azurerm_resource_group.rg.name
+}
+module "pip" {
+  source   = "../modules/pip"
+  location = var.location
+  rg_name  = azurerm_resource_group.rg.name
+  create_pip = var.create_pip_boolean  //When this is false, the IP is not created
+}
 module "vm" {
-  source     = "../modules/application-layer"
-  rg_name    = azurerm_resource_group.rg.name
-  snet_id    = module.network.snet_id
-  vm_name    = var.vm_name
-  vm_size    = var.vm_size #This will be different from dev and production
-  enviroment = var.enviroment
-
+  source        = "../modules/vm"
+  rg_name       = azurerm_resource_group.rg.name
+  location      = var.location
+  snet_id       = module.network.snet_id
+  nsg_id        = module.nsg.nsg_id
+  pip_id        = module.pip.pip_id
+  vm_name       = var.vm_name
+  vm_size       = var.vm_size
+  admin_user    = var.admin_user
+  test_password = var.test_password
+  enviroment    = var.enviroment
 }

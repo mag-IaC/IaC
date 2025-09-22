@@ -1,8 +1,9 @@
 resource "azurerm_network_security_group" "this" {
-  name                = "${var.prefix}-nsg"
+  name                = var.nsg_name
   location            = var.location
   resource_group_name = var.rg_name
 
+  // This code is gotten from chatGPT
   dynamic "security_rule" {
     for_each = var.security_rules
     content {

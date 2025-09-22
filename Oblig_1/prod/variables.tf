@@ -18,12 +18,33 @@ variable "enviroment" {
 
 variable "vm_size" {
   description = "This should always be changed further down in the module"
-  default     = "Standard_F2" #Easy, small VM, could make it more powerful for dev, but will not
+  default     = "Standard_F2"
 }
 
 variable "vm_name" {
   description = "default name for the vm"
   default     = "mag-df-vm"
+}
 
+variable "admin_user" {
+  description = "Admin username for the VM"
+  type        = string
+}
+
+variable "test_password" {
+  description = "Admin password for the VM"
+  type        = string
+  sensitive   = true
+}
+
+variable "create_pip_boolean" {
+  description = "Value if we create a pip or not (we do when true)"
+  type = bool
+  default = true
+}
+
+variable "subscription_id" {
+  description = "Azure subscription ID"
+  type        = string
 }
 
