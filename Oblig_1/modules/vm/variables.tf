@@ -31,11 +31,6 @@ variable "admin_user" {
 
 }
 
-variable "ip_allocation" {
-  description = "Variable that adds the possibility of static address allocation"
-  default     = "Dynamic"
-
-}
 
 variable "vm_size" {
   description = "This should always be changed further down in the module"
@@ -69,8 +64,19 @@ variable "enviroment" {
   default     = "mag-df-test"
 }
 
+variable "pip_id" {
+  description = "The ID of the public IP to associate with this NIC"
+  type        = string
+}
+
 
 variable "test_password" {
   description = "default password, ONLY FOR TESTING"
   default = "test_12345!ChangeDefault!"
+}
+
+# Variables you’ll need
+variable "prefix" {
+  description = "Prefix for all resources"
+  type        = string
 }

@@ -30,7 +30,7 @@ module "network" {
 }
 
 module "vm" {
-  source     = "../modules/compute"
+  source     = "../modules/application-layer"
   rg_name    = azurerm_resource_group.rg.name
   snet_id    = module.network.snet_id
   vm_name    = var.vm_name

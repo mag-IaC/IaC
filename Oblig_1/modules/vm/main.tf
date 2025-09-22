@@ -1,18 +1,9 @@
 
-resource "azurerm_network_interface" "nic" {
-  name                = var.nic_name
-  location            = var.location
-  resource_group_name = var.rg_name
 
-  ip_configuration {
-    name                          = "internal"
-    subnet_id                     = var.snet_id #this must be gotten with the out command
-    private_ip_address_allocation = var.ip_allocation
-  }
-}
 
+# Virtual Machine
 resource "azurerm_linux_virtual_machine" "vm_linux" {
-  name                = var.vm_name
+  name                = "${var.prefix}-vm"
   resource_group_name = var.rg_name
   location            = var.location
   size                = var.vm_size
@@ -24,7 +15,6 @@ resource "azurerm_linux_virtual_machine" "vm_linux" {
   network_interface_ids = [
     azurerm_network_interface.nic.id,
   ]
-
 
   os_disk {
     caching              = var.vm_references.caching
@@ -39,6 +29,6 @@ resource "azurerm_linux_virtual_machine" "vm_linux" {
   }
 
   tags = {
-    enviroment = var.enviroment
+    environment = var.enviroment
   }
 }
