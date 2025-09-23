@@ -7,16 +7,16 @@ To deploy the infrastructure, you first need to authenticate into the azure cli,
 
 cd ./Oblig_1/prod
 az login
-# Complete the online login in the browser
+##### Complete the online login in the browser
 
-# Open locals.tf and change subscription_id to your environment
+##### Open locals.tf and change subscription_id to your environment
 open ./Oblig_1/prod/locals.tf
 
 terraform init
 terraform plan -out=tfplan
 terraform apply tfplan
 
-# When done testing
+##### When done testing
 terraform destroy -auto-approve
 
 ### Structure 
