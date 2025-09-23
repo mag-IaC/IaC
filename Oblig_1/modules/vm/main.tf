@@ -47,6 +47,8 @@ resource "azurerm_linux_virtual_machine" "vm_linux" {
   }
 
   tags = {
-    environment = var.enviroment
+    enviroment = var.enviroment
+    owner = var.owner
+    usage = var.usage
   }
 }

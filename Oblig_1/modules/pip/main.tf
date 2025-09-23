@@ -5,4 +5,11 @@ resource "azurerm_public_ip" "this" {
   resource_group_name = var.rg_name
   allocation_method   = var.allocation_method
   sku                 = var.sku
+
+    tags = {
+    enviroment = var.enviroment
+    owner = var.owner
+    usage = var.usage
+  }
+  
 }

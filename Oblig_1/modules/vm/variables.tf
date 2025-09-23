@@ -64,6 +64,18 @@ variable "enviroment" {
   default     = "mag-df-test"
 }
 
+variable "owner" {
+  description = "A tag describing the owner of the resource"
+  type = string
+  default = "none_specified"
+}
+
+variable "usage" {
+  description = "A tag describing what the resource is used for"
+  default = "None specified"
+  
+}
+
 variable "pip_id" {
   description = "The ID of the public IP to associate with this NIC"
   type        = string

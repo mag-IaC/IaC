@@ -32,6 +32,18 @@ variable "enviroment" {
   default     = "mag-df-test"
 }
 
+variable "owner" {
+  description = "A tag describing the owner of the resource"
+  type = string
+  default = "none_specified"
+}
+
+variable "usage" {
+  description = "A tag describing what the resource is used for"
+  default = "None specified"
+  
+}
+
 variable "address_space" {
   description = "default value for address space"
   default     = ["10.0.0.0/16"]

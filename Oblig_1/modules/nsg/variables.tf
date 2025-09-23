@@ -43,4 +43,22 @@ variable "security_rules" {
       destination_address_prefix = "*"
     }
   ]
+
+  
+}
+variable "enviroment" {
+  description = "This module is used both by prod and dev"
+  default     = "mag-df-test"
+}
+
+variable "owner" {
+  description = "A tag describing the owner of the resource"
+  type = string
+  default = "none_specified"
+}
+
+variable "usage" {
+  description = "A tag describing what the resource is used for"
+  default = "None specified"
+  
 }

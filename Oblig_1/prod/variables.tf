@@ -11,11 +11,6 @@ variable "location" {
   default     = "westeurope"
 }
 
-variable "enviroment" {
-  description = "This module is used both by prod and dev"
-  default     = "mag-df-test"
-}
-
 variable "vm_size" {
   description = "This should always be changed further down in the module"
   default     = "Standard_F2"
@@ -43,8 +38,20 @@ variable "create_pip_boolean" {
   default = true
 }
 
-variable "subscription_id" {
-  description = "Azure subscription ID"
-  type        = string
+variable "enviroment" {
+  description = "This module is used both by prod and dev"
+  default     = "mag-df-test"
+}
+
+variable "owner" {
+  description = "A tag describing the owner of the resource"
+  type = string
+  default = "none_specified"
+}
+
+variable "usage" {
+  description = "A tag describing what the resource is used for"
+  default = "None specified"
+  
 }
 

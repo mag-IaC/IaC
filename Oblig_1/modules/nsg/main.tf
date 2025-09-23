@@ -18,5 +18,11 @@ resource "azurerm_network_security_group" "this" {
       destination_address_prefix = security_rule.value.destination_address_prefix
     }
   }
+  
+    tags = {
+    enviroment = var.enviroment
+    owner = var.owner
+    usage = var.usage
+  }
 }
 
