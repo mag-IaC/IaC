@@ -10,6 +10,12 @@ variable "location" {
   default = "westeurope"
 }
 
+variable "enviroment" {
+  type = string
+  default = "default"
+  
+}
+
 variable "rg_name" {
   description = "Resource group name"
   type        = string

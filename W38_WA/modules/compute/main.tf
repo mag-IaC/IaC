@@ -67,4 +67,14 @@ resource "azurerm_linux_virtual_machine" "vm" {
     sku       = var.vm_references.sku
     version   = var.vm_references.version
   }
+
+  custom_data = base64encode(data.template_file.cloud_init.rendered)
+
+}
+
+data "template_file" "cloud_init" {
+  template = file("./cloud-init.tpl")
+  vars = {
+    environment = var.enviroment
+  }
 }
