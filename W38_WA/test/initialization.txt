@@ -1,0 +1,3 @@
+terraform init `
+  -backend-config="../../DCST3005/mag-bootstrap/azure-terraform-poc/shared/backend.hcl" `
+  -backend-config="key=DCST3005/W38_WA/test/terraform.tfstate"

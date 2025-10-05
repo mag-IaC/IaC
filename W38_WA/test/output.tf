@@ -5,23 +5,23 @@ output "resource_group_name" {
 
 output "nsg_id" {
   description = "The ID of the network security group"
-  value       = module.nsg.nsg_id
+  value       = module.compute.nsg_id
 }
 
 output "pip_address" {
   description = "The public IP address of the VM (if created)"
-  value       = module.pip.pip_address
+  value       = module.compute.pip_address
   sensitive   = false //Solution from gpt => does not fail if no pip is created.
 }
 
 output "vm_name" {
   description = "The name of the virtual machine"
-  value       = module.vm.vm_name
+  value       = module.compute.vm_name
 }
 
 output "vm_id" {
   description = "The resource ID of the virtual machine"
-  value       = module.vm.vm_id
+  value       = module.compute.vm_id
 }
 
 output "admin_username" {
@@ -29,3 +29,4 @@ output "admin_username" {
   value       = var.admin_user
   sensitive   = false
 }
+

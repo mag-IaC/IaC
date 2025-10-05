@@ -46,7 +46,7 @@ resource "azurerm_network_interface_security_group_association" "nic_nsg" {
 }
 
 # Virtual Machine
-resource "azurerm_linux_virtual_machine" "vm" {
+resource "azurerm_linux_virtual_machine" "this" {
   name                  = var.vm_name
   location              = var.location
   resource_group_name   = var.rg_name
@@ -54,6 +54,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   admin_username        = var.admin_user
   network_interface_ids = [azurerm_network_interface.nic.id]
 
+  disable_password_authentication = false
   admin_password = var.admin_password
 
   os_disk {
@@ -73,7 +74,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
 }
 
 data "template_file" "cloud_init" {
-  template = file("./cloud-init.tpl")
+  template = file("${path.module}/cloud-init.tpl")
   vars = {
     environment = var.enviroment
   }

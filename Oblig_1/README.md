@@ -1,4 +1,4 @@
-# Obligatory assignment 1
+# Obligatory assignment 1 (in organization)
 ### - Magnus Lange
 
 
