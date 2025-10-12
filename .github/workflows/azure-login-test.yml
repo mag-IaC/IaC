@@ -16,20 +16,21 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Sanity check repository secrets
-        shell: pwsh
+        shell: powershell
         run: |
           if (-not "${{ secrets.AZURE_CLIENT_ID }}") {
-            Write-Error "Missing AZURE_CLIENT_ID (repo secret)"
+            Write-Host "❌ Missing AZURE_CLIENT_ID (repo secret)"
             exit 1
           }
           if (-not "${{ secrets.AZURE_TENANT_ID }}") {
-            Write-Error "Missing AZURE_TENANT_ID (repo secret)"
+            Write-Host "❌ Missing AZURE_TENANT_ID (repo secret)"
             exit 1
           }
           if (-not "${{ secrets.AZURE_SUBSCRIPTION_ID }}") {
-            Write-Error "Missing AZURE_SUBSCRIPTION_ID (repo secret)"
+            Write-Host "❌ Missing AZURE_SUBSCRIPTION_ID (repo secret)"
             exit 1
           }
+          Write-Host "✅ All required secrets are set."
 
       - name: Azure login (OIDC)
         uses: azure/login@v2
@@ -39,8 +40,8 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           enable-AzPSSession: false
 
-      - name: Azure CLI (native on runner)
-        shell: pwsh
+      - name: Azure CLI (PowerShell)
+        shell: powershell
         run: |
           az --version
           az account show
