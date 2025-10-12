@@ -7,13 +7,11 @@ variable "subscription_id" {
 variable "location" {
   description = "Azure region for all resources."
   type        = string
-  default = "westeurope"
 }
 
 variable "name_prefix" {
   description = "Short prefix for naming (e.g. course or class code). Lowercase letters and digits only."
   type        = string
-  default = "mag"
 }
 
 variable "unique_suffix" {
@@ -31,7 +29,7 @@ variable "resource_group_name" {
 variable "storage_account_name" {
   description = "Optional explicit Storage Account name (must be globally unique, 3-24 lowercase alphanum). If empty, composed automatically."
   type        = string
-  default     = "magsttfqwert"
+  default     = ""
 }
 
 variable "container_name" {

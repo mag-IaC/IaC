@@ -2,9 +2,15 @@ terraform {
   required_version = ">= 1.6.0"
 
   backend "azurerm" {
-    # see backend.hcl for non-secret settings
-    # use_azuread_auth = true  # uncomment to use Azure AD auth (instead of access key)
+    resource_group_name  = "rg-mag-tfstate-001"   # REQUIRED with Azure AD auth
+    storage_account_name = "sttfstatemag2412"     # REQUIRED with Azure AD auth
+    container_name       = "tfstate"
+    key                  = "projects/backend/terraform.tfstate"
+    access_key = "V/c0S9DJlaGGhERUjYhAbK+XKJcZ0BxfTs15rx6fA1Q3fqr+qAKu2l8ZaHR9hISrDQSMT+pHl5X++AStm1sBcw==" #found with the command az storage account keys list `--resource-group rg-tfstate-mag2412  --account-name sttfstatemag2412 --query "[0].value" -o tsv
+
   }
+
+
 
   required_providers {
     azurerm = {

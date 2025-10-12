@@ -1045,3 +1045,5 @@
 [2025-10-12 14:23:44Z INFO BrokerMessageListener] Get messages has been cancelled using local token source. Continue to get messages with new status.
 [2025-10-12 14:30:26Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials_rsaparams
 [2025-10-12 14:30:27Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2025-10-12 15:20:37Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials_rsaparams
+[2025-10-12 15:20:38Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
