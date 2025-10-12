@@ -1047,3 +1047,101 @@
 [2025-10-12 14:30:27Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
 [2025-10-12 15:20:37Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials_rsaparams
 [2025-10-12 15:20:38Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2025-10-12 16:10:50Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials_rsaparams
+[2025-10-12 16:10:51Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2025-10-12 16:45:57Z INFO Runner] Received RunnerRefreshConfigMessage for 'runner' config file
+[2025-10-12 16:45:57Z INFO RunnerConfigUpdater] Verifying runner qualified id: O_kgDODhOPbw/R_kgDOPhwL9Q/self-hosted/23
+[2025-10-12 16:45:57Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 16:45:57Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 16:45:57Z INFO HostContext] Well known config file 'Runner': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.runner'
+[2025-10-12 16:45:58Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials_rsaparams
+[2025-10-12 16:45:58Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials_rsaparams
+[2025-10-12 16:45:58Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2025-10-12 16:45:59Z INFO ConfigurationStore] Saving runner migrated settings
+[2025-10-12 16:45:59Z INFO ConfigurationStore] Migrated Settings Saved.
+[2025-10-12 16:45:59Z INFO Runner] Runner configuration was updated. Session restart has been scheduled
+[2025-10-12 16:45:59Z INFO Runner] Pending session restart detected and job dispatcher is not busy. Restarting session now.
+[2025-10-12 16:45:59Z INFO JobDispatcher] Shutting down JobDispatcher. Make sure all WorkerDispatcher has finished.
+[2025-10-12 16:45:59Z INFO JobDispatcher] Ensure WorkerDispatcher for job b6d1aab8-e42d-5316-a726-3bc434c0d48c run to finish, cancel any running job.
+[2025-10-12 16:45:59Z INFO JobDispatcher] Job request b6d1aab8-e42d-5316-a726-3bc434c0d48c processed succeed.
+[2025-10-12 16:45:59Z INFO Runner] Deleting Runner Session...
+[2025-10-12 16:45:59Z INFO Runner] Restarting runner session after config update...
+[2025-10-12 16:45:59Z INFO Runner] Runner configuration was refreshed, restarting session...
+[2025-10-12 16:45:59Z INFO ConfigurationManager] LoadSettings
+[2025-10-12 16:45:59Z INFO ConfigurationStore] IsConfigured()
+[2025-10-12 16:45:59Z INFO ConfigurationStore] IsConfigured: True
+[2025-10-12 16:45:59Z INFO ConfigurationManager] Is configured: True
+[2025-10-12 16:45:59Z INFO ConfigurationManager] Settings Loaded
+[2025-10-12 16:45:59Z INFO Runner] RunAsync
+[2025-10-12 16:45:59Z INFO ConfigurationManager] LoadMigratedSettings
+[2025-10-12 16:45:59Z INFO ConfigurationStore] IsMigratedConfigured()
+[2025-10-12 16:45:59Z INFO ConfigurationStore] IsMigratedConfigured: True
+[2025-10-12 16:45:59Z INFO ConfigurationStore] Read migrated setting file: 381 chars
+[2025-10-12 16:45:59Z INFO ConfigurationManager] Migrated Settings Loaded
+[2025-10-12 16:45:59Z INFO Runner] Loaded migrated settings from .runner_migrated file
+[2025-10-12 16:45:59Z INFO Runner] {
+  "AgentId": 23,
+  "AgentName": "BROOR",
+  "PoolId": 1,
+  "PoolName": "Default",
+  "ServerUrl": "https://pipelinesghubeus26.actions.githubusercontent.com/OAl3VkefnLrxxD3RmUfO85aa1scPu8EoAxBzw9rv6t5QwcjaI4/",
+  "GitHubUrl": "https://github.com/mag-IaC/IaC",
+  "WorkFolder": "_work",
+  "UseV2Flow": true,
+  "ServerUrlV2": "https://broker.actions.githubusercontent.com/"
+}
+[2025-10-12 16:45:59Z INFO Runner] Attempting to create session using migrated settings
+[2025-10-12 16:45:59Z INFO Runner] Using BrokerMessageListener
+[2025-10-12 16:45:59Z INFO BrokerMessageListener] Using provided settings
+[2025-10-12 16:45:59Z INFO BrokerMessageListener] Using migrated settings from .runner_migrated
+[2025-10-12 16:45:59Z INFO BrokerMessageListener] {
+  "AgentId": 23,
+  "AgentName": "BROOR",
+  "PoolId": 1,
+  "PoolName": "Default",
+  "ServerUrl": "https://pipelinesghubeus26.actions.githubusercontent.com/OAl3VkefnLrxxD3RmUfO85aa1scPu8EoAxBzw9rv6t5QwcjaI4/",
+  "GitHubUrl": "https://github.com/mag-IaC/IaC",
+  "WorkFolder": "_work",
+  "UseV2Flow": true,
+  "ServerUrlV2": "https://broker.actions.githubusercontent.com/"
+}
+[2025-10-12 16:45:59Z INFO BrokerMessageListener] Loading Credentials
+[2025-10-12 16:45:59Z INFO ConfigurationStore] HasCredentials()
+[2025-10-12 16:45:59Z INFO ConfigurationStore] stored True
+[2025-10-12 16:45:59Z INFO CredentialManager] GetCredentialProvider
+[2025-10-12 16:45:59Z INFO CredentialManager] Creating type OAuth
+[2025-10-12 16:45:59Z INFO CredentialManager] Creating credential type: OAuth
+[2025-10-12 16:45:59Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials_rsaparams
+[2025-10-12 16:45:59Z INFO BrokerMessageListener] Attempt to create session.
+[2025-10-12 16:45:59Z INFO BrokerMessageListener] Connecting to the Broker Server...
+[2025-10-12 16:45:59Z INFO ConfigurationStore] HasCredentials()
+[2025-10-12 16:45:59Z INFO ConfigurationStore] stored True
+[2025-10-12 16:45:59Z INFO CredentialManager] GetCredentialProvider
+[2025-10-12 16:45:59Z INFO CredentialManager] Creating type OAuth
+[2025-10-12 16:45:59Z INFO CredentialManager] Creating credential type: OAuth
+[2025-10-12 16:45:59Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials_rsaparams
+[2025-10-12 16:45:59Z INFO BrokerMessageListener] VssConnection created
+[2025-10-12 16:45:59Z INFO BrokerMessageListener] Connecting to the Runner server...
+[2025-10-12 16:45:59Z INFO RunnerServer] EstablishVssConnection
+[2025-10-12 16:45:59Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2025-10-12 16:45:59Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2025-10-12 16:45:59Z INFO RunnerServer] EstablishVssConnection
+[2025-10-12 16:45:59Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2025-10-12 16:45:59Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2025-10-12 16:45:59Z INFO RunnerServer] EstablishVssConnection
+[2025-10-12 16:45:59Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2025-10-12 16:45:59Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2025-10-12 16:46:00Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2025-10-12 16:46:00Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2025-10-12 16:46:00Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2025-10-12 16:46:00Z INFO BrokerMessageListener] VssConnection created
+[2025-10-12 16:46:00Z INFO Terminal] WRITE LINE: 
+[2025-10-12 16:46:00Z INFO Terminal] WRITE LINE: 
+[2025-10-12 16:46:00Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials_rsaparams
+[2025-10-12 16:46:00Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials_rsaparams
+[2025-10-12 16:46:00Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2025-10-12 16:46:01Z INFO BrokerMessageListener] Session created.
+[2025-10-12 16:46:01Z INFO Runner] Successfully created session with migrated settings
+[2025-10-12 16:46:01Z INFO Terminal] WRITE LINE: Current runner version: '2.328.0'
+[2025-10-12 16:46:01Z INFO Terminal] WRITE LINE: 2025-10-12 16:46:01Z: Listening for Jobs
+[2025-10-12 16:46:01Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
