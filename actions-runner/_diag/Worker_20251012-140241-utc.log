@@ -1,0 +1,3809 @@
+[2025-10-12 14:02:41Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known config file 'Runner': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.runner'
+[2025-10-12 14:02:41Z INFO Worker] Version: 2.328.0
+[2025-10-12 14:02:41Z INFO Worker] Commit: 6f9a9110adce65f44ca6f7c0ae142b9cc6af937b
+[2025-10-12 14:02:41Z INFO Worker] Culture: en-US
+[2025-10-12 14:02:41Z INFO Worker] UI Culture: en-US
+[2025-10-12 14:02:41Z INFO Worker] Waiting to receive the job message from the channel.
+[2025-10-12 14:02:41Z INFO ProcessChannel] Receiving message of length 22658, with hash 'cf8c8112e2cc00fe1a1193cca26651f9bd1ebdacc88a444019ff66b5c7e86bc1'
+[2025-10-12 14:02:41Z INFO Worker] Message received.
+[2025-10-12 14:02:41Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/azure-login-test.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v4",
+        "repositoryType": "GitHub"
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "0625231f-26cc-4f7c-be13-b65a70317a10",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 18,
+        "col": 15,
+        "lit": "Sanity check repository secrets"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 19,
+              "col": 14,
+              "expr": "format('test -n \"{0}\" || {{ echo \"Missing AZURE_CLIENT_ID (repo secret)\"; exit 1; }}\ntest -n \"{1}\" || {{ echo \"Missing AZURE_TENANT_ID (repo secret)\"; exit 1; }}\ntest -n \"{2}\" || {{ echo \"Missing AZURE_SUBSCRIPTION_ID (repo secret)\"; exit 1; }}\n', secrets.AZURE_CLIENT_ID, secrets.AZURE_TENANT_ID, secrets.AZURE_SUBSCRIPTION_ID)"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "0e7d5e3d-7e7c-4164-9ce2-aff673bdcfc7",
+      "name": "__run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "azure/login",
+        "ref": "v2",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 24,
+        "col": 15,
+        "lit": "Azure login (OIDC)"
+      },
+      "contextName": "__azure_login",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 27,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 27,
+              "col": 11,
+              "lit": "client-id"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 27,
+              "col": 22,
+              "expr": "secrets.AZURE_CLIENT_ID"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 28,
+              "col": 11,
+              "lit": "tenant-id"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 28,
+              "col": 22,
+              "expr": "secrets.AZURE_TENANT_ID"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 29,
+              "col": 11,
+              "lit": "subscription-id"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 29,
+              "col": 28,
+              "expr": "secrets.AZURE_SUBSCRIPTION_ID"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 30,
+              "col": 11,
+              "lit": "enable-AzPSSession"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 30,
+              "col": 31,
+              "lit": "false"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "1058c54a-f101-4773-a804-349aa34eca1f",
+      "name": "__azure_login"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 32,
+        "col": 15,
+        "lit": "Azure CLI (native on runner)"
+      },
+      "contextName": "__run_2",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 34,
+              "col": 14,
+              "lit": "az --version\naz account show\n"
+            }
+          },
+          {
+            "key": "shell",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 33,
+              "col": 16,
+              "lit": "bash"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "91a2f51a-87a1-4fa8-9d32-741c2c55fac8",
+      "name": "__run_2"
+    }
+  ],
+  "variables": {
+    "AZURE_CLIENT_ID": {
+      "value": "***",
+      "isSecret": true
+    },
+    "AZURE_SUBSCRIPTION_ID": {
+      "value": "***",
+      "isSecret": true
+    },
+    "AZURE_TENANT_ID": {
+      "value": "***",
+      "isSecret": true
+    },
+    "Actions.EnableHttpRedirects": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode16Action": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "DistributedTask.DetailUntarFailure": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnableJobServerQueueTelemetry": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode16": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode20": {
+      "value": "true"
+    },
+    "DistributedTask.LogTemplateErrorsAsDebugMessages": {
+      "value": "true"
+    },
+    "DistributedTask.MarkJobAsFailedOnWorkerCrash": {
+      "value": "true"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.UseActionArchiveCache": {
+      "value": "true"
+    },
+    "DistributedTask.UseWhich2": {
+      "value": "true"
+    },
+    "RunService.FixEmbeddedIssues": {
+      "value": "true"
+    },
+    "actions_add_check_run_id_to_job_context": {
+      "value": "true"
+    },
+    "actions_display_helpful_actions_download_errors": {
+      "value": "true"
+    },
+    "actions_skip_retry_complete_job_upon_known_errors": {
+      "value": "true"
+    },
+    "actions_uses_cache_service_v2": {
+      "value": "true"
+    },
+    "github_token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.from_run_service": {
+      "value": "true"
+    },
+    "system.github.job": {
+      "value": "login-and-check"
+    },
+    "system.github.launch_endpoint": {
+      "value": "https://launch.actions.githubusercontent.com"
+    },
+    "system.github.results_endpoint": {
+      "value": "https://results-receiver.actions.githubusercontent.com/"
+    },
+    "system.github.results_upload_with_sdk": {
+      "value": "true"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Contents\":\"read\",\"Metadata\":\"read\"}"
+    },
+    "system.orchestrationId": {
+      "value": "b936e525-e167-42dd-b186-6339f9bdbe66.login-and-check.__default"
+    },
+    "system.phaseDisplayName": {
+      "value": "login-and-check"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "system.runnerEnvironment": {
+      "value": "self-hosted"
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "RunnerJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "actions",
+    "version": 0,
+    "planId": "b936e525-e167-42dd-b186-6339f9bdbe66",
+    "planGroup": null,
+    "artifactUri": null,
+    "artifactLocation": null,
+    "definition": null,
+    "owner": null
+  },
+  "timeline": {
+    "id": "b936e525-e167-42dd-b186-6339f9bdbe66",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "de0fad9a-7ca9-5e8e-8cdf-a5633e71c57e",
+  "jobDisplayName": "login-and-check",
+  "jobName": "__default",
+  "requestId": 0,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "",
+          "ServerName": "",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/OAl3VkefnLrxxD3RmUfO85aa1scPu8EoAxBzw9rv6t5QwcjaI4/",
+          "FeedStreamUrl": "wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock",
+          "ResultsServiceUrl": "https://results-receiver.actions.githubusercontent.com/",
+          "PipelinesServiceUrl": "https://pipelinesghubeus26.actions.githubusercontent.com/OAl3VkefnLrxxD3RmUfO85aa1scPu8EoAxBzw9rv6t5QwcjaI4/",
+          "GenerateIdTokenUrl": "https://run-actions-1-azure-eastus.actions.githubusercontent.com/80//idtoken/b936e525-e167-42dd-b186-6339f9bdbe66/de0fad9a-7ca9-5e8e-8cdf-a5633e71c57e?api-version=2.0"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://run-actions-1-azure-eastus.actions.githubusercontent.com/80/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": "***"
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/main"
+        },
+        {
+          "k": "sha",
+          "v": "cd91364060087559aab2f4fb350632238c1607b8"
+        },
+        {
+          "k": "repository",
+          "v": "mag-IaC/IaC"
+        },
+        {
+          "k": "repository_owner",
+          "v": "mag-IaC"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "236162927"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/mag-IaC/IaC.git"
+        },
+        {
+          "k": "run_id",
+          "v": "18444872945"
+        },
+        {
+          "k": "run_number",
+          "v": "6"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "3"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "private"
+        },
+        {
+          "k": "actor_id",
+          "v": "145982602"
+        },
+        {
+          "k": "actor",
+          "v": "mag-lange"
+        },
+        {
+          "k": "workflow",
+          "v": "Azure OIDC login via self-hosted runner"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "main"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "cd91364060087559aab2f4fb350632238c1607b8"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "eb16e3b0144920e9360f3ebca63b947fa835ea84"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "145982602+mag-lange@users.noreply.github.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "magnolan@stud.ntnu.no"
+                              },
+                              {
+                                "k": "username",
+                                "v": "mag-lange"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "noreply@github.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "GitHub"
+                              },
+                              {
+                                "k": "username",
+                                "v": "web-flow"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "cd91364060087559aab2f4fb350632238c1607b8"
+                        },
+                        {
+                          "k": "message",
+                          "v": "Update azure-login-test.yml"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2025-10-12T15:52:28+02:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "457f899d8acfc614fe4593a58cc96a5328950989"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/mag-IaC/IaC/commit/cd91364060087559aab2f4fb350632238c1607b8"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/mag-IaC/IaC/compare/eb16e3b01449...cd9136406008"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "145982602+mag-lange@users.noreply.github.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "magnolan@stud.ntnu.no"
+                          },
+                          {
+                            "k": "username",
+                            "v": "mag-lange"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "noreply@github.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "GitHub"
+                          },
+                          {
+                            "k": "username",
+                            "v": "web-flow"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "cd91364060087559aab2f4fb350632238c1607b8"
+                    },
+                    {
+                      "k": "message",
+                      "v": "Update azure-login-test.yml"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2025-10-12T15:52:28+02:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "457f899d8acfc614fe4593a58cc96a5328950989"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/mag-IaC/IaC/commit/cd91364060087559aab2f4fb350632238c1607b8"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "organization",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/236162927?v=4"
+                    },
+                    {
+                      "k": "description",
+                      "v": null
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/orgs/mag-IaC/events"
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/orgs/mag-IaC/hooks"
+                    },
+                    {
+                      "k": "id",
+                      "v": 236162927.0
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/orgs/mag-IaC/issues"
+                    },
+                    {
+                      "k": "login",
+                      "v": "mag-IaC"
+                    },
+                    {
+                      "k": "members_url",
+                      "v": "https://api.github.com/orgs/mag-IaC/members{/member}"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "O_kgDODhOPbw"
+                    },
+                    {
+                      "k": "public_members_url",
+                      "v": "https://api.github.com/orgs/mag-IaC/public_members{/member}"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/orgs/mag-IaC/repos"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/orgs/mag-IaC"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "145982602+mag-lange@users.noreply.github.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "mag-lange"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/main"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": false
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/mag-IaC/IaC.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1755775229.0
+                    },
+                    {
+                      "k": "custom_properties",
+                      "v": {
+                        "t": 2
+                      }
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": "Used for the subject DCST3005"
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "mag-IaC/IaC"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/mag-IaC/IaC.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": false
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": false
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/mag-IaC/IaC"
+                    },
+                    {
+                      "k": "id",
+                      "v": 1042025461.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "HCL"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "main"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "IaC"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOPhwL9Q"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "organization",
+                      "v": "mag-IaC"
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/236162927?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": null
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/mag-IaC/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/mag-IaC/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/mag-IaC/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/mag-IaC/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/mag-IaC"
+                          },
+                          {
+                            "k": "id",
+                            "v": 236162927.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "mag-IaC"
+                          },
+                          {
+                            "k": "name",
+                            "v": "mag-IaC"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "O_kgDODhOPbw"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/mag-IaC/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/mag-IaC/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/mag-IaC/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/mag-IaC/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/mag-IaC/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "Organization"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/mag-IaC"
+                          },
+                          {
+                            "k": "user_view_type",
+                            "v": "public"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": true
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1760277148.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 114.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:mag-IaC/IaC.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/mag-IaC/IaC"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2025-10-12T13:46:38Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/repos/mag-IaC/IaC"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "private"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/145982602?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/mag-lange/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/mag-lange/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/mag-lange/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/mag-lange/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/mag-lange"
+                    },
+                    {
+                      "k": "id",
+                      "v": 145982602.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "mag-lange"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "U_kgDOCLOEig"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/mag-lange/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/mag-lange/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/mag-lange/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/mag-lange/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/mag-lange/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/mag-lange"
+                    },
+                    {
+                      "k": "user_view_type",
+                      "v": "public"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "workflow_ref",
+          "v": "mag-IaC/IaC/.github/workflows/azure-login-test.yml@refs/heads/main"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "cd91364060087559aab2f4fb350632238c1607b8"
+        },
+        {
+          "k": "repository_id",
+          "v": "1042025461"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "mag-lange"
+        }
+      ]
+    },
+    "inputs": {
+      "t": 2
+    },
+    "job": {
+      "t": 2,
+      "d": [
+        {
+          "k": "check_run_id",
+          "v": 52550370638.0
+        }
+      ]
+    },
+    "matrix": null,
+    "needs": {
+      "t": 2
+    },
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    },
+    "vars": {
+      "t": 2
+    }
+  },
+  "actionsEnvironment": {
+    "name": "dev",
+    "url": null
+  },
+  "billingOwnerId": "O_kgDODhOPbw"
+}
+[2025-10-12 14:02:41Z INFO JobRunner] Job ID de0fad9a-7ca9-5e8e-8cdf-a5633e71c57e
+[2025-10-12 14:02:41Z INFO ConfigurationStore] currentAssemblyLocation: C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin\Runner.Worker.dll
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO ConfigurationStore] binPath: C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO ConfigurationStore] RootFolder: C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known config file 'Runner': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.runner'
+[2025-10-12 14:02:41Z INFO ConfigurationStore] ConfigFilePath: C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.runner
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known config file 'MigratedRunner': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.runner_migrated'
+[2025-10-12 14:02:41Z INFO ConfigurationStore] MigratedConfigFilePath: C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.runner_migrated
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials'
+[2025-10-12 14:02:41Z INFO ConfigurationStore] CredFilePath: C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known config file 'MigratedCredentials': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials_migrated'
+[2025-10-12 14:02:41Z INFO ConfigurationStore] MigratedCredFilePath: C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials_migrated
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known config file 'Service': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.service'
+[2025-10-12 14:02:41Z INFO ConfigurationStore] ServiceConfigFilePath: C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.service
+[2025-10-12 14:02:41Z INFO ConfigurationStore] Read setting file: 381 chars
+[2025-10-12 14:02:41Z INFO JobRunner] Initializing launch client
+[2025-10-12 14:02:41Z INFO JobServerQueue] Initializing results client
+[2025-10-12 14:02:41Z INFO ResultServer] Creating websocket client ...wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock
+[2025-10-12 14:02:41Z INFO ResultServer] Attempting to start websocket client with delay 00:00:00.
+[2025-10-12 14:02:41Z INFO JobServerQueue] Start process web console line queue.
+[2025-10-12 14:02:41Z INFO JobServerQueue] Start process file upload queue.
+[2025-10-12 14:02:41Z INFO JobServerQueue] Start results file upload queue.
+[2025-10-12 14:02:41Z INFO JobServerQueue] Starting results-based upload queue...
+[2025-10-12 14:02:41Z INFO JobServerQueue] Start process timeline update queue.
+[2025-10-12 14:02:41Z INFO ExecutionContext] Initializing Job context
+[2025-10-12 14:02:41Z INFO ExecutionContext] Initialize GitHub context
+[2025-10-12 14:02:41Z INFO ExecutionContext] Initialize Env context
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:02:41Z INFO JobRunner] Starting the job execution context.
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:41Z INFO JobRunner] Validating directory permissions for: 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Tools': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_tool'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Temp': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp'
+[2025-10-12 14:02:41Z INFO JobRunner] Getting job extension.
+[2025-10-12 14:02:41Z INFO JobRunner] Initialize job. Getting all job steps.
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.credentials'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known config file 'SetupInfo': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\.setup_info'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:41Z INFO PipelineDirectoryManager] Loading tracking config if exists: C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_PipelineMapping\mag-IaC/IaC\PipelineFolder.json
+[2025-10-12 14:02:41Z INFO PipelineDirectoryManager] Updating job run properties.
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:41Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:42Z INFO JobExtension] Downloading actions
+[2025-10-12 14:02:42Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:42Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:42Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:42Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:42Z INFO Worker] Listening for cancel message from the channel.
+[2025-10-12 14:02:42Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2025-10-12 14:02:42Z INFO ResultServer] Successfully started websocket client.
+[2025-10-12 14:02:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'f7aac8ad-e4f6-4b7a-a018-6d4c8efe3bc4', success rate: 1/1.
+[2025-10-12 14:02:42Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:42Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:42Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:42Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:42Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:42Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:42Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:42Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:42Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/checkout/zipball/08eba0b27e820071cde6df949e0beb9ba4906955' into C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions\_temp_34c47fe7-7e61-4157-9799-c3b348885a4a\03787bdf-d1b9-42f6-be7f-82980a0c98ba.zip.
+[2025-10-12 14:02:42Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2025-10-12 14:02:42Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'f7aac8ad-e4f6-4b7a-a018-6d4c8efe3bc4', success rate: 1/1.
+[2025-10-12 14:02:43Z INFO ActionManager] Request URL: https://api.github.com/repos/actions/checkout/zipball/08eba0b27e820071cde6df949e0beb9ba4906955 X-GitHub-Request-Id: D950:13C7F5:2CC737:446008:68EBB4FF Http Status: OK
+[2025-10-12 14:02:44Z INFO ActionManager] Finished getting action repository.
+[2025-10-12 14:02:44Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:44Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:44Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:44Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:44Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:44Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:44Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:44Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:44Z INFO ActionManager] Save archive 'https://api.github.com/repos/Azure/login/zipball/a457da9ea143d694b1b9c7c869ebb04ebe844ef5' into C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions\_temp_9d10f5a4-776f-4e49-b2d7-754be75d34db\8a2c47b9-e9aa-46ba-90cc-6a52be8459af.zip.
+[2025-10-12 14:02:44Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'f7aac8ad-e4f6-4b7a-a018-6d4c8efe3bc4', success rate: 1/1.
+[2025-10-12 14:02:44Z INFO ActionManager] Request URL: https://api.github.com/repos/Azure/login/zipball/a457da9ea143d694b1b9c7c869ebb04ebe844ef5 X-GitHub-Request-Id: D952:3E1B61:317EE9:48FEE9:68EBB501 Http Status: OK
+[2025-10-12 14:02:45Z INFO ActionManager] Finished getting action repository.
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-10-12 14:02:45Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:45Z INFO ActionManager] Load action that reference repository from 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions\actions\checkout\v4'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-10-12 14:02:45Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-10-12 14:02:45Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-10-12 14:02:45Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Ignore action property branding.
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Azure Login",
+  "description": "Authenticate to Azure and run your Azure CLI or Azure PowerShell based actions or scripts.",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 5,
+          "col": 3,
+          "lit": "creds"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 8,
+          "col": 3,
+          "lit": "client-id"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 11,
+          "col": 3,
+          "lit": "tenant-id"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 14,
+          "col": 3,
+          "lit": "subscription-id"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 17,
+          "col": 3,
+          "lit": "enable-AzPSSession"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 21,
+          "col": 3,
+          "lit": "environment"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 24,
+          "col": 14,
+          "lit": "azurecloud"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 25,
+          "col": 3,
+          "lit": "allow-no-subscriptions"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 28,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 29,
+          "col": 3,
+          "lit": "audience"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 32,
+          "col": 14,
+          "lit": "api://AzureADTokenExchange"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 33,
+          "col": 3,
+          "lit": "auth-type"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 36,
+          "col": 14,
+          "lit": "SERVICE_PRINCIPAL"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "lib/main/index.js",
+    "pre": null,
+    "post": "lib/cleanup/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "(!env.AZURE_LOGIN_POST_CLEANUP || env.AZURE_LOGIN_POST_CLEANUP != 'false')",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-10-12 14:02:45Z INFO ActionManager] Action node.js file: lib/main/index.js, no more preparation.
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:45Z INFO ActionManager] Load action that reference repository from 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions\azure\login\v2'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Ignore action property branding.
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Azure Login",
+  "description": "Authenticate to Azure and run your Azure CLI or Azure PowerShell based actions or scripts.",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 5,
+          "col": 3,
+          "lit": "creds"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 8,
+          "col": 3,
+          "lit": "client-id"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 11,
+          "col": 3,
+          "lit": "tenant-id"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 14,
+          "col": 3,
+          "lit": "subscription-id"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 17,
+          "col": 3,
+          "lit": "enable-AzPSSession"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 20,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 21,
+          "col": 3,
+          "lit": "environment"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 24,
+          "col": 14,
+          "lit": "azurecloud"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 25,
+          "col": 3,
+          "lit": "allow-no-subscriptions"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 28,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 29,
+          "col": 3,
+          "lit": "audience"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 32,
+          "col": 14,
+          "lit": "api://AzureADTokenExchange"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 33,
+          "col": 3,
+          "lit": "auth-type"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 36,
+          "col": 14,
+          "lit": "SERVICE_PRINCIPAL"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "lib/main/index.js",
+    "pre": null,
+    "post": "lib/cleanup/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "(!env.AZURE_LOGIN_POST_CLEANUP || env.AZURE_LOGIN_POST_CLEANUP != 'false')",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-10-12 14:02:45Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-10-12 14:02:45Z INFO ActionManager] Action node.js file: lib/main/index.js.
+[2025-10-12 14:02:45Z INFO ActionManager] Action post node.js file: lib/cleanup/index.js.
+[2025-10-12 14:02:45Z INFO JobExtension] Adding .
+[2025-10-12 14:02:45Z INFO JobExtension] Adding .
+[2025-10-12 14:02:45Z INFO JobExtension] Adding .
+[2025-10-12 14:02:45Z INFO JobExtension] Adding .
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:02:45Z INFO JobExtension] Total accessible running process: 230.
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO JobExtension] Start checking service connectivity in background.
+[2025-10-12 14:02:45Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "f7aac8ad-e4f6-4b7a-a018-6d4c8efe3bc4",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 4,
+  "startTime": "2025-10-12T14:02:41.9450267Z",
+  "finishTime": "2025-10-12T14:02:45.3163792Z"
+}.
+[2025-10-12 14:02:45Z INFO JobRunner] Total job steps: 4.
+[2025-10-12 14:02:45Z INFO JobRunner] Waiting for job to be marked as started.
+[2025-10-12 14:02:45Z INFO JobRunner] Run all job steps.
+[2025-10-12 14:02:45Z INFO StepsRunner] Processing step: DisplayName='Run actions/checkout@v4'
+[2025-10-12 14:02:45Z INFO StepsRunner] Evaluating: success()
+[2025-10-12 14:02:45Z INFO StepsRunner] Result: true
+[2025-10-12 14:02:45Z INFO StepsRunner] Starting the step.
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO StepsRunner] Which2: 'chcp'
+[2025-10-12 14:02:45Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper] Starting process:
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper] Process started with process id 16152, waiting for process exit.
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper] Finished process 16152 with exit code 0, and elapsed time 00:00:00.0143599.
+[2025-10-12 14:02:45Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:45Z INFO ActionManager] Load action that reference repository from 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions\actions\checkout\v4'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-10-12 14:02:45Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-10-12 14:02:45Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-10-12 14:02:45Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-10-12 14:02:45Z INFO ExecutionContext] Reserve record order 6 to 10 for post job actions.
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:02:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'f7aac8ad-e4f6-4b7a-a018-6d4c8efe3bc4', success rate: 1/1.
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Temp': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp'
+[2025-10-12 14:02:45Z INFO ExecutionContext] Write event payload to C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Temp': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp'
+[2025-10-12 14:02:45Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "mag-IaC/IaC"
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2025-10-12 14:02:45Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2025-10-12 14:02:45Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command error
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command group
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-10-12 14:02:45Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:45Z INFO HostContext] Well known directory 'Externals': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\externals'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper] Starting process:
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\externals\node20\bin\node.exe'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\IaC\IaC'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-10-12 14:02:45Z INFO ProcessInvokerWrapper] Process started with process id 14968, waiting for process exit.
+[2025-10-12 14:02:45Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:45Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-10-12 14:02:45Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag\blocks\b936e525-e167-42dd-b186-6339f9bdbe66_f7aac8ad-e4f6-4b7a-a018-6d4c8efe3bc4.1
+[2025-10-12 14:02:45Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-10-12 14:02:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:46Z INFO AddMaskCommandExtension] Add new secret mask with length of 76
+[2025-10-12 14:02:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:46Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:46Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-10-12 14:02:48Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:52Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:54Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper] Finished process 14968 with exit code 0, and elapsed time 00:00:09.8221869.
+[2025-10-12 14:02:55Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp\_runner_file_commands\step_summary_ed95d99d-74f5-4a52-8e71-dcecf7f922e1) is empty; skipping attachment upload
+[2025-10-12 14:02:55Z INFO StepsRunner] Step result: 
+[2025-10-12 14:02:55Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Main",
+  "stepId": "0625231f-26cc-4f7c-be13-b65a70317a10",
+  "stepContextName": "__actions_checkout",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [
+    "no submodule mapping found in .gitmodules for path 'actions-runner/_work/IaC/IaC'",
+    "Unable to clean or reset the repository. The repository will be recreated instead."
+  ],
+  "executionTimeInSeconds": 10,
+  "startTime": "2025-10-12T14:02:45.3381242Z",
+  "finishTime": "2025-10-12T14:02:55.3091408Z"
+}.
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:55Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-10-12 14:02:55Z INFO StepsRunner] Current state: job state = ''
+[2025-10-12 14:02:55Z INFO StepsRunner] Processing step: DisplayName='Sanity check repository secrets'
+[2025-10-12 14:02:55Z INFO StepsRunner] Evaluating: success()
+[2025-10-12 14:02:55Z INFO StepsRunner] Result: true
+[2025-10-12 14:02:55Z INFO StepsRunner] Starting the step.
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:55Z INFO StepsRunner] Which2: 'chcp'
+[2025-10-12 14:02:55Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper] Starting process:
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper] Process started with process id 17292, waiting for process exit.
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper] Finished process 17292 with exit code 0, and elapsed time 00:00:00.0205950.
+[2025-10-12 14:02:55Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Temp': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp'
+[2025-10-12 14:02:55Z INFO ExecutionContext] Write event payload to C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Temp': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp'
+[2025-10-12 14:02:55Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-10-12 14:02:55Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command error
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command group
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-10-12 14:02:55Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-10-12 14:02:55Z INFO ScriptHandler] Which2: 'pwsh'
+[2025-10-12 14:02:55Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2025-10-12 14:02:55Z INFO ScriptHandler] Defaulting to powershell
+[2025-10-12 14:02:55Z INFO ScriptHandler] Which2: 'powershell'
+[2025-10-12 14:02:55Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2025-10-12 14:02:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0625231f-26cc-4f7c-be13-b65a70317a10', success rate: 1/1.
+[2025-10-12 14:02:55Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0e7d5e3d-7e7c-4164-9ce2-aff673bdcfc7', success rate: 1/1.
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:55Z INFO HostContext] Well known directory 'Temp': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp'
+[2025-10-12 14:02:55Z INFO ScriptHandler] Which2: 'pwsh'
+[2025-10-12 14:02:55Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2025-10-12 14:02:55Z INFO ScriptHandler] Defaulting to powershell
+[2025-10-12 14:02:55Z INFO ScriptHandler] Which2: 'powershell'
+[2025-10-12 14:02:55Z INFO ScriptHandler] Location: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper] Starting process:
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp\b08f5a1d-297b-4384-a6e9-56933b09df9e.ps1'"'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\IaC\IaC'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-10-12 14:02:55Z INFO ProcessInvokerWrapper] Process started with process id 15480, waiting for process exit.
+[2025-10-12 14:02:56Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-10-12 14:02:56Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag\blocks\b936e525-e167-42dd-b186-6339f9bdbe66_0625231f-26cc-4f7c-be13-b65a70317a10.1
+[2025-10-12 14:02:56Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-10-12 14:02:56Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper] Finished process 15480 with exit code 1, and elapsed time 00:00:02.5027653.
+[2025-10-12 14:02:57Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp\_runner_file_commands\step_summary_1568d3f2-f512-466d-8612-55d1a2e36762) is empty; skipping attachment upload
+[2025-10-12 14:02:57Z INFO StepsRunner] Step result: Failed
+[2025-10-12 14:02:57Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "0e7d5e3d-7e7c-4164-9ce2-aff673bdcfc7",
+  "stepContextName": "__run",
+  "result": "failed",
+  "errorMessages": [
+    "Process completed with exit code 1."
+  ],
+  "executionTimeInSeconds": 3,
+  "startTime": "2025-10-12T14:02:55.3130055Z",
+  "finishTime": "2025-10-12T14:02:57.8958909Z"
+}.
+[2025-10-12 14:02:57Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2025-10-12 14:02:57Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-10-12 14:02:57Z INFO StepsRunner] Processing step: DisplayName='Azure login (OIDC)'
+[2025-10-12 14:02:57Z INFO StepsRunner] Evaluating: success()
+[2025-10-12 14:02:57Z INFO StepsRunner] Result: false
+[2025-10-12 14:02:57Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-10-12 14:02:57Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-10-12 14:02:57Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-10-12 14:02:57Z INFO StepsRunner] Processing step: DisplayName='Azure CLI (native on runner)'
+[2025-10-12 14:02:57Z INFO StepsRunner] Evaluating: success()
+[2025-10-12 14:02:57Z INFO StepsRunner] Result: false
+[2025-10-12 14:02:57Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-10-12 14:02:57Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-10-12 14:02:57Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-10-12 14:02:57Z INFO StepsRunner] Processing step: DisplayName='Post Run actions/checkout@v4'
+[2025-10-12 14:02:57Z INFO StepsRunner] Evaluating: always()
+[2025-10-12 14:02:57Z INFO StepsRunner] Result: true
+[2025-10-12 14:02:57Z INFO StepsRunner] Starting the step.
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:57Z INFO StepsRunner] Which2: 'chcp'
+[2025-10-12 14:02:57Z INFO StepsRunner] Location: 'C:\WINDOWS\system32\chcp.COM'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper] Starting process:
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   File name: 'C:\WINDOWS\system32\chcp.COM'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper] Process started with process id 356, waiting for process exit.
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper] Finished process 356 with exit code 0, and elapsed time 00:00:00.0143621.
+[2025-10-12 14:02:57Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:57Z INFO ActionManager] Load action that reference repository from 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions\actions\checkout\v4'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Actions': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions'
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-10-12 14:02:57Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-10-12 14:02:57Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-10-12 14:02:57Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Temp': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp'
+[2025-10-12 14:02:57Z INFO ExecutionContext] Write event payload to C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Work': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Temp': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp'
+[2025-10-12 14:02:57Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "mag-IaC/IaC"
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2025-10-12 14:02:57Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2025-10-12 14:02:57Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command error
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command group
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-10-12 14:02:57Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:02:57Z INFO HostContext] Well known directory 'Externals': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\externals'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper] Starting process:
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\externals\node20\bin\node.exe'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\IaC\IaC'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-10-12 14:02:57Z INFO ProcessInvokerWrapper] Process started with process id 11488, waiting for process exit.
+[2025-10-12 14:02:57Z INFO JobServerQueue] Try to append 1 batches web console lines for record '0e7d5e3d-7e7c-4164-9ce2-aff673bdcfc7', success rate: 1/1.
+[2025-10-12 14:02:57Z INFO JobServerQueue] Try to append 1 batches web console lines for record '96f8f304-c201-4e95-8107-91739421f01e', success rate: 1/1.
+[2025-10-12 14:02:58Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-10-12 14:02:58Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2025-10-12 14:02:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record '96f8f304-c201-4e95-8107-91739421f01e', success rate: 1/1.
+[2025-10-12 14:02:58Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-10-12 14:02:58Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag\blocks\b936e525-e167-42dd-b186-6339f9bdbe66_0e7d5e3d-7e7c-4164-9ce2-aff673bdcfc7.1
+[2025-10-12 14:02:58Z INFO JobServerQueue] Try to append 1 batches web console lines for record '96f8f304-c201-4e95-8107-91739421f01e', success rate: 1/1.
+[2025-10-12 14:02:59Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-10-12 14:03:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record '96f8f304-c201-4e95-8107-91739421f01e', success rate: 1/1.
+[2025-10-12 14:03:01Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-10-12 14:03:01Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-10-12 14:03:01Z INFO ProcessInvokerWrapper] Finished process 11488 with exit code 0, and elapsed time 00:00:03.1712146.
+[2025-10-12 14:03:01Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp\_runner_file_commands\step_summary_6e94244f-5333-4e08-9b7c-7d8c6f0feb74) is empty; skipping attachment upload
+[2025-10-12 14:03:01Z INFO StepsRunner] Step result: 
+[2025-10-12 14:03:01Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Post",
+  "stepId": "96f8f304-c201-4e95-8107-91739421f01e",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 4,
+  "startTime": "2025-10-12T14:02:57.9004853Z",
+  "finishTime": "2025-10-12T14:03:01.1179292Z"
+}.
+[2025-10-12 14:03:01Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-10-12 14:03:01Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-10-12 14:03:01Z INFO JobRunner] Finalize job.
+[2025-10-12 14:03:01Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:03:01Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:03:01Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:03:01Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:03:01Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:03:01Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:03:01Z INFO JobExtension] Initialize Env context
+[2025-10-12 14:03:01Z INFO JobExtension] Initialize steps context
+[2025-10-12 14:03:01Z INFO JobExtension] Total accessible running process: 230.
+[2025-10-12 14:03:01Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "e13e37b3-25b6-46fb-aab1-a82f973860f0",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2025-10-12T14:03:01.1272354Z",
+  "finishTime": "2025-10-12T14:03:01.1388538Z"
+}.
+[2025-10-12 14:03:01Z INFO JobRunner] Job result after all job steps finish: Failed
+[2025-10-12 14:03:01Z INFO JobRunner] Completing the job execution context.
+[2025-10-12 14:03:01Z INFO JobRunner] Shutting down the job server queue.
+[2025-10-12 14:03:01Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2025-10-12 14:03:02Z INFO JobServerQueue] All queue process task stopped.
+[2025-10-12 14:03:02Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'e13e37b3-25b6-46fb-aab1-a82f973860f0', success rate: 1/1.
+[2025-10-12 14:03:02Z INFO JobServerQueue] Web console line queue drained.
+[2025-10-12 14:03:02Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2025-10-12 14:03:02Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2025-10-12 14:03:02Z INFO JobServerQueue] File upload queue drained.
+[2025-10-12 14:03:02Z INFO JobServerQueue] Starting results-based upload queue...
+[2025-10-12 14:03:02Z INFO JobServerQueue] Uploading 3 file(s) in one shot through results service.
+[2025-10-12 14:03:02Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-10-12 14:03:02Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag\blocks\b936e525-e167-42dd-b186-6339f9bdbe66_96f8f304-c201-4e95-8107-91739421f01e.1
+[2025-10-12 14:03:02Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-10-12 14:03:02Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag\blocks\b936e525-e167-42dd-b186-6339f9bdbe66_e13e37b3-25b6-46fb-aab1-a82f973860f0.1
+[2025-10-12 14:03:03Z INFO JobServerQueue] Got a job log file to send to results service.
+[2025-10-12 14:03:03Z INFO JobServerQueue] Starting upload of job log file to results service ResultsLog, C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag\blocks\b936e525-e167-42dd-b186-6339f9bdbe66_de0fad9a-7ca9-5e8e-8cdf-a5633e71c57e.1
+[2025-10-12 14:03:03Z INFO JobServerQueue] Tried to upload 3 file(s) to results, success rate: 3/3.
+[2025-10-12 14:03:03Z INFO JobServerQueue] Results upload queue drained.
+[2025-10-12 14:03:03Z INFO JobServerQueue] Timeline update queue drained.
+[2025-10-12 14:03:03Z INFO JobServerQueue] Disposing job server ...
+[2025-10-12 14:03:03Z INFO JobServerQueue] Disposing results server ...
+[2025-10-12 14:03:03Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2025-10-12 14:03:03Z INFO TempDirectoryManager] Cleaning runner temp folder: C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_work\_temp
+[2025-10-12 14:03:03Z INFO HostContext] Well known directory 'Bin': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\bin'
+[2025-10-12 14:03:03Z INFO HostContext] Well known directory 'Root': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner'
+[2025-10-12 14:03:03Z INFO HostContext] Well known directory 'Diag': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag'
+[2025-10-12 14:03:03Z INFO HostContext] Well known config file 'Telemetry': 'C:\Users\magnu\OneDrive - NTNU\NTNU(alive)\5th.semester\DCST3005\DCST3005\actions-runner\_diag\.telemetry'
+[2025-10-12 14:03:03Z INFO JobRunner] Raising job completed against run service
+[2025-10-12 14:03:04Z INFO Worker] Job completed.
