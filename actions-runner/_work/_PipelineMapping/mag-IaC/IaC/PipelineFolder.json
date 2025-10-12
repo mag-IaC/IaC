@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "mag-IaC/IaC",
+  "pipelineDirectory": "IaC",
+  "workspaceDirectory": "IaC\\IaC",
+  "repositories": {
+    "mag-IaC/IaC": {
+      "repositoryPath": "IaC\\IaC",
+      "lastRunOn": "10/12/2025 15:52:38 +02:00"
+    }
+  },
+  "lastRunOn": "10/12/2025 15:52:38 +02:00"
+}
