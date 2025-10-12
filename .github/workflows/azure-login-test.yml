@@ -6,7 +6,7 @@ on:
 
 jobs:
   login-and-check:
-    runs-on: [self-hosted, macOS, X64]
+    runs-on: [self-hosted, Windows, X64]
     environment: dev
     permissions:
       id-token: write
