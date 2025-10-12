@@ -1,0 +1,36 @@
+name: Azure OIDC login via self-hosted runner
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  login-and-check:
+    runs-on: [self-hosted, macOS, X64]
+    environment: dev
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sanity check repository secrets
+        run: |
+          test -n "${{ secrets.AZURE_CLIENT_ID }}" || { echo "Missing AZURE_CLIENT_ID (repo secret)"; exit 1; }
+          test -n "${{ secrets.AZURE_TENANT_ID }}" || { echo "Missing AZURE_TENANT_ID (repo secret)"; exit 1; }
+          test -n "${{ secrets.AZURE_SUBSCRIPTION_ID }}" || { echo "Missing AZURE_SUBSCRIPTION_ID (repo secret)"; exit 1; }
+
+      - name: Azure login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          enable-AzPSSession: false
+
+      - name: Azure CLI (native on runner)
+        shell: bash
+        run: |
+          az --version
+          az account show
