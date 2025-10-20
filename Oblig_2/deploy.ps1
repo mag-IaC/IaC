@@ -10,5 +10,6 @@ Write-Host "Initializing Terraform for $environment..."
 terraform init -reconfigure -backend-config="key=$stateKey"
 
 Write-Host "Planning and applying for $environment..."
-terraform plan -var-file="$tfvars" -out="plan.tfplan"
-terraform apply -auto-approve "plan.tfplan"
+
+terraform plan -var-file="$tfvars" -out="plan$environment.tfplan"
+terraform apply -auto-approve "plan$environment.tfplan"
