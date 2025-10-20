@@ -57,7 +57,14 @@ And publish them on github (where you can create a Pull Request)
 
 We have implemented two workflows which will trigger if you create a PR (or commit directly) to the main branch. The code is only commited/merged if it passes both tests. 
 
-When new code is commited to the main branch, the second workflow (CD) is triggered. This automatically applies the changes made to dev and test, while waiting for approval from one of the 
+When new code is commited to the main branch, the second workflow (CD) is triggered. This automatically applies the changes made to dev and test, while waiting for approval from one of the registered users. 
+
+
+# Rollback 
+
+If you want to roll back some of the infrastructure you can use the ./plans folder to see the timestamped terraform plans, and apply them. 
+
+##### The end!
 
 
 
