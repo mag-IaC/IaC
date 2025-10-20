@@ -10,9 +10,9 @@ permissions:
   contents: read
 
 jobs:
-  environment: prod
   deploy:
     runs-on: ubuntu-latest
+    environment: prod
     defaults:
       run:
         shell: pwsh
