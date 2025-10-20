@@ -18,13 +18,12 @@ jobs:
         uses: actions/checkout@v3
 
       # Step 2: Azure Login via OIDC federated credentials
-      - name: Azure Login
-        uses: azure/login@v1
+      - name: Azure login (OIDC)
+        uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          client-id:       ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id:       ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          auth-type: oidc
 
 
       # Step 3: Setup Terraform
