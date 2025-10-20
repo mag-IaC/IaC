@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 jobs:
-  deploy devandtest:
+  deploy_devandtest:
     runs-on: ubuntu-latest
     environment: dev
     defaults:
@@ -49,7 +49,7 @@ jobs:
         run: ./deploy.ps1 -environment test
         shell: pwsh
 
-  deploy prod:
+  deploy_prod:
     runs-on: ubuntu-latest
     environment: prod
     defaults:
