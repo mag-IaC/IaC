@@ -37,3 +37,5 @@ course materials/module01/secret.txt
 
 # MacOS specific files
 .DS_Store
+
+!Oblig_2/enviroments/*.tfvars
