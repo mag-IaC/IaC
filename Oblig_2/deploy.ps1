@@ -2,14 +2,13 @@ Param(
     [string]$environment
 )
 
-# Find latest plan for the environment
-$plan = Get-ChildItem "./plans" | Where-Object { $_.Name -like "$environment*" } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+# Determine correct tfvars and state key
+$tfvars = "enviroments/$environment.tfvars"
+$stateKey = "projects/oblig2/$environment.tfstate"
 
-if (-not $plan) {
-    Write-Error "No plan found for environment $environment"
-    exit 1
-}
-terraform init -reconfigure -backend-config="key=projects/oblig2/${$environment}.tfstate"
-Write-Host "Applying plan $($plan.Name) for $environment"
-terraform apply -auto-approve "$($plan.FullName)"
+Write-Host "Initializing Terraform for $environment..."
+terraform init -reconfigure -backend-config="key=$stateKey"
 
+Write-Host "Planning and applying for $environment..."
+terraform plan -var-file="$tfvars" -out="plan.tfplan"
+terraform apply -auto-approve "plan.tfplan"
