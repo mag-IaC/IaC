@@ -9,7 +9,7 @@ if (-not $plan) {
     Write-Error "No plan found for environment $environment"
     exit 1
 }
-
+terraform init -reconfigure -backend-config=$"key=projects/oblig2/${$environment}.tfstate"
 Write-Host "Applying plan $($plan.Name) for $environment"
 terraform apply -auto-approve "$($plan.FullName)"
 
