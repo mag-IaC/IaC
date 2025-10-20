@@ -86,3 +86,11 @@ jobs:
           terraform init -reconfigure -backend-config="key=projects/oblig2/prod.tfstate"
           terraform plan -var-file="enviroments/prod.tfvars" -out="plans/prod_$timestamp.plan"
         working-directory: ./Oblig_2
+
+      # Step 12: Upload Terraform plans as artifacts for CD
+      - name: Upload Terraform plans
+        uses: actions/upload-artifact@v4
+        with:
+          name: terraform-plans
+          path: ./Oblig_2/plans/
+
