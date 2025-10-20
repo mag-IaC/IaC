@@ -41,12 +41,12 @@ jobs:
 
       # Step 4: Deploy DEV
       - name: Deploy DEV
-        run: ./deploy.ps1 -environment dev
+        run: ../Oblig_2/deploy.ps1 -environment dev
 
       # Step 5: Deploy TEST
       - name: Deploy TEST
-        run: ./deploy.ps1 -environment test
+        run: ../Oblig_2/deploy.ps1 -environment test
 
       # Step 6: Deploy PROD (manual approval if configured in environment)
       - name: Deploy PROD
-        run: ./deploy.ps1 -environment prod
+        run: ../Oblig_2/deploy.ps1 -environment prod
