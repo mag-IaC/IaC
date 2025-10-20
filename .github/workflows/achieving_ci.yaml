@@ -33,31 +33,33 @@ jobs:
         run: terraform fmt -check
         working-directory: ./Oblig_2
 
-      # Step 5: Terraform Validate
+      # Step 5: Terraform Init
+      - name: Terraform Init
+        run: terraform init -reconfigure
+        working-directory: ./Oblig_2
+
+      # Step 6: Terraform Validate
       - name: Terraform Validate
         run: terraform validate
         working-directory: ./Oblig_2
 
-      # Step 6: Terraform Plan for DEV
+      # Step 7: Terraform Plan for DEV
       - name: Terraform Plan Dev
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
-          terraform init -backend=false
           terraform plan -var-file="enviroments/dev.tfvars" -out="plans/dev_$timestamp.plan"
         working-directory: ./Oblig_2
 
-      # Step 7: Terraform Plan for TEST
+      # Step 8: Terraform Plan for TEST
       - name: Terraform Plan Test
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
-          terraform init -backend=false
           terraform plan -var-file="enviroments/test.tfvars" -out="plans/test_$timestamp.plan"
         working-directory: ./Oblig_2
 
-      # Step 8: Terraform Plan for PROD
+      # Step 9: Terraform Plan for PROD
       - name: Terraform Plan Prod
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
-          terraform init -backend=false
           terraform plan -var-file="enviroments/prod.tfvars" -out="plans/prod_$timestamp.plan"
         working-directory: ./Oblig_2
