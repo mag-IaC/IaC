@@ -13,6 +13,7 @@ permissions:
 
 jobs:
   terraform:
+    environment: dev
     runs-on: ubuntu-latest
     defaults:
       run:
