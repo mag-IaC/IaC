@@ -19,7 +19,7 @@ variable "storage_tier" {
 variable "replication_type" {
   description = "Replication strategy (LRS, ZRS, GRS)"
   type        = string
-  default = "LRS"
+  default = "LRS" #
 }
 
 variable "project_name" {

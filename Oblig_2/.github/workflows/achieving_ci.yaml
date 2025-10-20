@@ -1,0 +1,53 @@
+name: Terraform CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.6.0
+
+      # Step 3: Check Terraform formatting
+      - name: Terraform Format
+        run: terraform fmt -check
+
+      # Step 4: Validate Terraform syntax
+      - name: Terraform Validate
+        run: terraform validate
+
+      # Step 5: Terraform Plan for DEV
+      - name: Terraform Plan Dev
+        run: |
+          timestamp=$(date +%Y%m%d-%H%M%S)
+          terraform init -backend=false
+          terraform plan -var-file="env/dev.tfvars" -out="plans/dev_$timestamp.plan"
+
+      # Step 6: Terraform Plan for TEST
+      - name: Terraform Plan Test
+        run: |
+          timestamp=$(date +%Y%m%d-%H%M%S)
+          terraform init -backend=false
+          terraform plan -var-file="env/test.tfvars" -out="plans/test_$timestamp.plan"
+
+      # Step 7: Terraform Plan for PROD
+      - name: Terraform Plan Prod
+        run: |
+          timestamp=$(date +%Y%m%d-%H%M%S)
+          terraform init -backend=false
+          terraform plan -var-file="env/prod.tfvars" -out="plans/prod_$timestamp.plan"
