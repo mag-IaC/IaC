@@ -36,18 +36,18 @@ jobs:
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
           terraform init -backend=false
-          terraform plan -var-file="env/dev.tfvars" -out="plans/dev_$timestamp.plan"
+          terraform plan -var-file="enviroments/dev.tfvars" -out="plans/dev_$timestamp.plan"
 
       # Step 6: Terraform Plan for TEST
       - name: Terraform Plan Test
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
           terraform init -backend=false
-          terraform plan -var-file="env/test.tfvars" -out="plans/test_$timestamp.plan"
+          terraform plan -var-file="enviroments/test.tfvars" -out="plans/test_$timestamp.plan"
 
       # Step 7: Terraform Plan for PROD
       - name: Terraform Plan Prod
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
           terraform init -backend=false
-          terraform plan -var-file="env/prod.tfvars" -out="plans/prod_$timestamp.plan"
+          terraform plan -var-file="enviroments/prod.tfvars" -out="plans/prod_$timestamp.plan"
