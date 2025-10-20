@@ -23,31 +23,41 @@ jobs:
         with:
           terraform_version: 1.6.0
 
-      # Step 3: Check Terraform formatting
+      # Step 3: Ensure plans folder exists
+      - name: Ensure plans folder
+        run: mkdir -p plans
+        working-directory: ./Oblig_2
+
+      # Step 4: Terraform Format
       - name: Terraform Format
         run: terraform fmt -check
+        working-directory: ./Oblig_2
 
-      # Step 4: Validate Terraform syntax
+      # Step 5: Terraform Validate
       - name: Terraform Validate
         run: terraform validate
+        working-directory: ./Oblig_2
 
-      # Step 5: Terraform Plan for DEV
+      # Step 6: Terraform Plan for DEV
       - name: Terraform Plan Dev
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
           terraform init -backend=false
           terraform plan -var-file="enviroments/dev.tfvars" -out="plans/dev_$timestamp.plan"
+        working-directory: ./Oblig_2
 
-      # Step 6: Terraform Plan for TEST
+      # Step 7: Terraform Plan for TEST
       - name: Terraform Plan Test
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
           terraform init -backend=false
           terraform plan -var-file="enviroments/test.tfvars" -out="plans/test_$timestamp.plan"
+        working-directory: ./Oblig_2
 
-      # Step 7: Terraform Plan for PROD
+      # Step 8: Terraform Plan for PROD
       - name: Terraform Plan Prod
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
           terraform init -backend=false
           terraform plan -var-file="enviroments/prod.tfvars" -out="plans/prod_$timestamp.plan"
+        working-directory: ./Oblig_2
