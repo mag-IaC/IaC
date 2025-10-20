@@ -54,4 +54,3 @@ jobs:
       # Deploy PROD (with manual approval)
       - name: Deploy PROD
         run: ./deploy.ps1 -environment prod
-        environment: prod
