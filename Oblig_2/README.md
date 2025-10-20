@@ -4,7 +4,7 @@ I will now explain the workflow that each team member given a specific task shou
 
 # hey this is the main branch
 
-5:53 - Trying to use CD
+6:05 - Trying to use CD
 
 
 
@@ -18,7 +18,7 @@ $timestamp = Get-Date -Format "yyyyddMM-HHmmss"
 terraform init -reconfigure -backend-config="key=projects/oblig2/dev.tfstate"
 terraform plan -var-file="enviroments/dev.tfvars" -out="plans/dev_$timestamp.plan"
 
-terraform apply .\plans\FILE.plan
+terraform apply .\plans\FILE.plan 
 
 
 ### prod
