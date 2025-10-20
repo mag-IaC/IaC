@@ -13,51 +13,64 @@ jobs:
         shell: bash
 
     steps:
-      # Step 1: Checkout the code
+      # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up Terraform
+      # Step 2: Azure Login via OIDC federated credentials
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          enable-oidc: true
+
+      # Step 3: Setup Terraform
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.6.0
 
-      # Step 3: Ensure plans folder exists
+      # Step 4: Ensure plans folder exists
       - name: Ensure plans folder
         run: mkdir -p plans
         working-directory: ./Oblig_2
 
-      # Step 4: Terraform Format
+      # Step 5: Terraform Format
       - name: Terraform Format
         run: terraform fmt -check
         working-directory: ./Oblig_2
 
-      # Step 5: Terraform Init
+      # Step 6: Terraform Init with backend reconfigure
       - name: Terraform Init
         run: terraform init -reconfigure
         working-directory: ./Oblig_2
 
-      # Step 6: Terraform Validate
+      # Step 7: Terraform Validate
       - name: Terraform Validate
         run: terraform validate
         working-directory: ./Oblig_2
 
-      # Step 7: Terraform Plan for DEV
+      # Step 8: Debug - list files in Oblig_2 to confirm tfvars
+      - name: Debug folder
+        run: ls -R ./Oblig_2
+          
+      # Step 9: Terraform Plan for DEV
       - name: Terraform Plan Dev
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
           terraform plan -var-file="enviroments/dev.tfvars" -out="plans/dev_$timestamp.plan"
         working-directory: ./Oblig_2
 
-      # Step 8: Terraform Plan for TEST
+      # Step 10: Terraform Plan for TEST
       - name: Terraform Plan Test
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
           terraform plan -var-file="enviroments/test.tfvars" -out="plans/test_$timestamp.plan"
         working-directory: ./Oblig_2
 
-      # Step 9: Terraform Plan for PROD
+      # Step 11: Terraform Plan for PROD
       - name: Terraform Plan Prod
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
