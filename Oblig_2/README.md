@@ -1,10 +1,12 @@
 # Description of workflow!
 
-I will now explain the workflow that each team member given a specific task should go through to implement it (trunk-based). 
+I will now explain the workflow that this obligatory assignment has shown. From configuring and writing the local code, til deploying it with CI/CD. 
 
-# hey this is the main branch
+# Starting configuration
 
-7:26 - maybe last test??
+We have the following folder structure: 
+
+
 
 
 

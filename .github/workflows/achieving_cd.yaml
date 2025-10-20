@@ -13,7 +13,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    enviroment: dev
+    environment: dev
     defaults:
       run:
         shell: pwsh
