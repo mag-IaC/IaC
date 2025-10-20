@@ -39,14 +39,17 @@ jobs:
         with:
           terraform_version: 1.6.0
 
-      # Step 4: Deploy DEV
       - name: Deploy DEV
-        run: ../Oblig_2/deploy.ps1 -environment dev
+        working-directory: ./Oblig_2
+        run: ./deploy.ps1 -environment dev
+        shell: pwsh
 
-      # Step 5: Deploy TEST
       - name: Deploy TEST
-        run: ../Oblig_2/deploy.ps1 -environment test
+        working-directory: ./Oblig_2
+        run: ./deploy.ps1 -environment test
+        shell: pwsh
 
-      # Step 6: Deploy PROD (manual approval if configured in environment)
       - name: Deploy PROD
-        run: ../Oblig_2/deploy.ps1 -environment prod
+        working-directory: ./Oblig_2
+        run: ./deploy.ps1 -environment prod
+        shell: pwsh
