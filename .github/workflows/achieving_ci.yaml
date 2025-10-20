@@ -47,19 +47,19 @@ jobs:
       - name: Terraform Plan Dev
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
-          terraform plan -var-file="./enviroments/dev.tfvars" -out="plans/dev_$timestamp.plan"
+          terraform plan -var-file="enviroments/dev.tfvars" -out="plans/dev_$timestamp.plan"
         working-directory: ./Oblig_2
 
       # Step 8: Terraform Plan for TEST
       - name: Terraform Plan Test
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
-          terraform plan -var-file="./enviroments/test.tfvars" -out="plans/test_$timestamp.plan"
+          terraform plan -var-file="enviroments/test.tfvars" -out="plans/test_$timestamp.plan"
         working-directory: ./Oblig_2
 
       # Step 9: Terraform Plan for PROD
       - name: Terraform Plan Prod
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
-          terraform plan -var-file="./enviroments/prod.tfvars" -out="plans/prod_$timestamp.plan"
+          terraform plan -var-file="enviroments/prod.tfvars" -out="plans/prod_$timestamp.plan"
         working-directory: ./Oblig_2
