@@ -11,4 +11,5 @@ if (-not $plan) {
 }
 
 Write-Host "Applying plan $($plan.Name) for $environment"
-terraform apply "$($plan.FullName)" --auto-approve
+terraform apply -auto-approve "$($plan.FullName)"
+
