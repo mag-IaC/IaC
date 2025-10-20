@@ -1,7 +1,7 @@
 variable "environment" {
   description = "Environment name (dev, test, prod)"
   type        = string
-  default = "test"
+  default     = "test"
 }
 
 variable "location" {
@@ -13,13 +13,13 @@ variable "location" {
 variable "storage_tier" {
   description = "Storage account performance tier (Standard or Premium)"
   type        = string
-  default = "Standard"
+  default     = "Standard"
 }
 
 variable "replication_type" {
   description = "Replication strategy (LRS, ZRS, GRS)"
   type        = string
-  default = "LRS" #
+  default     = "LRS" #
 }
 
 variable "project_name" {
